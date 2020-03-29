@@ -7,8 +7,7 @@ import threading
 import time
 import random
 import urllib
-import urllib2
-import ast
+import 
 import gc
 import types
 import copy
@@ -662,19 +661,19 @@ def _getDefaultFreeForAllPlaylist():
                'Kills to Win Per Player':10,
                'Respawn Times':1.0,
                'Time Limit':300,
-               'map':'Doom Shroom'
+               'map':'Rampage'
             },
             'type':'bsDeathMatch.DeathMatchGame'
          },
          {
             'settings':{
                'Chosen One Gets Gloves':True,
-               'Chosen One Gets Shield':False,
-               'Chosen One Time':30,
+               'Chosen One Gets Shield':True,
+               'Chosen One Time':60,
                'Epic Mode':0,
                'Respawn Times':1.0,
                'Time Limit':300,
-               'map':'Monkey Face'
+               'map':'Doom Shroom'
             },
             'type':'bsChosenOne.ChosenOneGame'
          },
@@ -690,7 +689,7 @@ def _getDefaultFreeForAllPlaylist():
          {
             'settings':{
                'Epic Mode':False,
-               'map':'Rampage'
+               'map':'Roundabout'
             },
             'type':'bsMeteorShower.MeteorShowerGame'
          },
@@ -747,9 +746,9 @@ def _getDefaultFreeForAllPlaylist():
          {
             'settings':{
                'Enable Impact Bombs':1,
-               'Enable Triple Bombs':False,
+               'Enable Triple Bombs':True,
                'Target Count':2,
-               'map':'Doom Shroom'
+               'map':'Bridgit'
             },
             'type':'bsTargetPractice.TargetPracticeGame'
          },
@@ -791,7 +790,7 @@ def _getDefaultTeamsPlaylist():
     return [
          {
             'settings':{
-               'Epic Mode':False,
+               'Epic Mode':True,
                'Flag Idle Return Time':30,
                'Flag Touch Return Time':0,
                'Respawn Times':1.0,
@@ -807,7 +806,7 @@ def _getDefaultTeamsPlaylist():
                'Respawn Times':1.0,
                'Score to Win':3,
                'Time Limit':600,
-               'map':'Step Right Up'
+               'map':'Rampage'
             },
             'type':'bsAssault.AssaultGame'
          },
@@ -836,7 +835,7 @@ def _getDefaultTeamsPlaylist():
          {
             'settings':{
                'Respawn Times':1.0,
-               'Score to Win':1,
+               'Score to Win':2,
                'Time Limit':600,
                'map':'Hockey Stadium'
             },
@@ -922,7 +921,7 @@ def _getDefaultTeamsPlaylist():
             'type':'bsAssault.AssaultGame'
          },
          {
-            'map':'Doom Shroom',
+            'map':'Rampage',
             'settings':{
                'Enable Impact Bombs':1,
                'Enable Triple Bombs':False,
@@ -952,13 +951,13 @@ def _getDefaultTeamsPlaylist():
          },
          {
             'settings':{
-               'Epic Mode':False,
+               'Epic Mode':True,
                'Flag Idle Return Time':30,
                'Flag Touch Return Time':0,
                'Respawn Times':1.0,
                'Score to Win':3,
                'Time Limit':300,
-               'map':'Happy Thoughts'
+               'map':'Tower D'
             },
             'type':'bsCaptureTheFlag.CTFGame'
          },
@@ -969,7 +968,7 @@ def _getDefaultTeamsPlaylist():
                'Laps':1,
                'Mine Spawning':2000,
                'Time Limit':300,
-               'map':'Big G'
+               'map':'Big Ball'
             },
             'type':'bsRace.RaceGame'
          },
@@ -1012,7 +1011,7 @@ def _getDefaultTeamsPlaylist():
                'Respawn Times':1.0,
                'Solo Mode':False,
                'Time Limit':300,
-               'map':'Crag Castle'
+               'map':'Boxing'
             },
             'type':'bsElimination.EliminationGame'
          },
@@ -2108,8 +2107,7 @@ elif bs.getEnvironment()['platform'] == 'mac' and hasattr(bsInternal,'_iTunesIni
                     # note: setting repeat and shuffle doesn't work in itunes 11 currently :-(
                     # playlistObj.setSongRepeat_(1799449708) # repeat-all
                     # playlistObj.setShuffle_(True)
-                    # playlistObj.playOnce_(False)
-                else:
+                    # playl
                     bs.callInGameThread(bs.Call(bs.screenMessage,_getResource('playlistNotFoundText')+': \''+self._currentPlaylist+'\'',(1,0,0)))
             except Exception,e:
                 try: print 'Exception playing playlist "'+self._currentPlaylist+'":',e
